@@ -189,7 +189,7 @@ class Trainer(object):
             return None
         perturbed_image, operator = output
     
-        return perturbed_image, (operator[0], operator[1])
+        return perturbed_image, (-operator[0], -operator[1])
 
     def get_labeled_data_list(self, bc_data_list):
         image_list = []

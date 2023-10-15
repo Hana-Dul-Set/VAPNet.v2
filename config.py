@@ -3,9 +3,9 @@ import os
 class Config:
     def __init__(self):
         
-        self.image_dir = './data/image'
+        self.image_dir = '../VAPNet/data/image'
 
-        self.data_dir = './data/annotation'
+        self.data_dir = '../VAPNet/data/annotation'
         self.weight_dir = './output/weight'
 
         self.best_crop_data = os.path.join(self.data_dir, 'best_crop')

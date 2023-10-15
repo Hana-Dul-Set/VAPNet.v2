@@ -26,6 +26,7 @@ def update_operator(type, option='csnet', direction=None):
         if option == 'vapnet' or option=='vapnet_test':
             plus_or_minus = random.randint(0, 1)
             operator[0] = -1 * (-1 if plus_or_minus else 1) * random.uniform(0.05, 0.40)
+            plus_or_minus = random.randint(0, 1)
             operator[1] = -1 * (-1 if plus_or_minus else 1) * random.uniform(0.05, 0.40)
             while operator[0] ** 2 + operator[1] ** 2 > 0.4 ** 2:
                 operator[0] = -1 * (-1 if plus_or_minus else 1) * random.uniform(0.05, 0.40)
