@@ -272,11 +272,6 @@ def remove_duplicated_box(annotation_path):
             new_data_list.append(data)
     with open(annotation_path, 'w') as f:
         json.dump(new_data_list, f, indent=2)
-    image_list = os.listdir('../VAPNet/data/image/image_labeled_vapnet')
-    name_list = [x['name'] for x in new_data_list]
-    for image in image_list:
-        if image not in name_list:
-            os.remove(os.path.join('../VAPNet/data/image/image_labeled_vapnet', image))
 
 if __name__ == '__main__':
     cfg = Config()

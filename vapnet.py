@@ -34,7 +34,7 @@ class VAPNet(nn.Module):
         spp = self.spatial_pyramid_pool(feature_map, feature_map.shape[0], self.spp_pool_size)
         feature_vector = self.last_layer(spp)
 
-        magnitude_output = self.point_output_layer(feature_vector)
+        magnitude_output = self.magnitude_output_layer(feature_vector)
 
         return magnitude_output
     

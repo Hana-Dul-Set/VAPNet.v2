@@ -192,11 +192,11 @@ def get_shifted_box(image_size, bounding_box_corners, mag=None):
     min_y = min([x[1] for x in bounding_box_corners])
     max_y = max([x[1] for x in bounding_box_corners])
 
-    diff = image_size[0] * mag
+    diff = image_size[0] * operator[0]
     min_x += diff
     max_x += diff
-    
-    diff = image_size[1] * mag
+
+    diff = image_size[1] * operator[1]
     min_y += diff
     max_y += diff
 

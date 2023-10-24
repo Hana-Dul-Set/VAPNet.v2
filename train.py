@@ -71,6 +71,7 @@ class Trainer(object):
         self.model.train().to(self.device)
         bc_iter = iter(self.bc_loader)
         for index, data in enumerate(self.unlabeled_loader):
+
             self.train_iter += 1
             try:
                 bc_data_list = next(bc_iter)
@@ -82,8 +83,8 @@ class Trainer(object):
             l_image_list, l_magnitude_label_list = self.get_labeled_data_list(bc_data_list)
 
             # get unlabeled data label
-            ul_image_list = [Image.open(os.path.join('./data/open_images', x[0])).convert('RGB') for x in unlabeled_data_list]
-            ul_magnitude_label_list = [x[3] for x in unlabeled_data_list]
+            ul_image_list = [Image.open(os.path.join('../VAPNet/data/open_images', x[0])).convert('RGB') for x in unlabeled_data_list]
+            ul_magnitude_label_list = [x[1] for x in unlabeled_data_list]
 
             # combine
             image_list = l_image_list + ul_image_list
@@ -159,9 +160,7 @@ class Trainer(object):
             checkpoint_path = os.path.join(self.cfg.weight_dir, 'checkpoint-weight.pth')
             torch.save(self.model.state_dict(), checkpoint_path)
             print('Checkpoint Saved...\n')
-            
-            for i in range(5, 10, 1):
-                test_while_training(threshold=i/10)
+
             test_while_training()
 
             epoch_log = 'epoch: %d / %d, lr: %8f' % (self.epoch, self.max_epoch, self.optimizer.param_groups[0]['lr'])

@@ -2,3 +2,4 @@ data
 wandb
 CSNet/output
 __pycache__
+output
